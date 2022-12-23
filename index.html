@@ -15,10 +15,11 @@
 
         addEventListener('load', async () => {
             let sw = await navigator.serviceWorker.register('./sw.js');
+            console.log(sw);
         });
 
         async function subscribe() {
-            let sw = navigator.serviceWorker.ready;
+            let sw = await navigator.serviceWorker.ready;
             let push = await sw.pushManager.subscribe({
                 userVisbleOnly: true,
                 applicationServerKey: 'BBEfNgzD34yqRYWjBiZHo7iLIgWxlaoJ9kmXavYhx_2lSuTaXakkYgGoHFPJ8hQzqUKdmCVX_5QU3gOPJkrn2WA'
